@@ -16,10 +16,10 @@ import org.springframework.core.env.Environment;
  */
 @Configuration
 //@PropertySource({"classpath:datasource.properties", "classpath:jms.properties"}) // can use any of these
-@PropertySources({
-        @PropertySource("classpath:datasource.properties"),
-        @PropertySource("classpath:jms.properties")
-})
+//@PropertySources({
+//        @PropertySource("classpath:datasource.properties"),
+//        @PropertySource("classpath:jms.properties")
+//})
 public class PropertyConfig {
 
     //we can override property files by using an environment variables
@@ -71,11 +71,11 @@ public class PropertyConfig {
     }
 
     // PropertySourcesPlaceholderConfigurer Bean will match the values and read the file mentioned
-    // in @PropertySource
-    @Bean
-    public static PropertySourcesPlaceholderConfigurer properties()
-    {
-        PropertySourcesPlaceholderConfigurer placeholderConfigurer = new PropertySourcesPlaceholderConfigurer();
-        return placeholderConfigurer;
-    }
+    // in @PropertySource, however, this is not needed when the properties are in application.properties file
+//    @Bean
+//    public static PropertySourcesPlaceholderConfigurer properties()
+//    {
+//        PropertySourcesPlaceholderConfigurer placeholderConfigurer = new PropertySourcesPlaceholderConfigurer();
+//        return placeholderConfigurer;
+//    }
 }
