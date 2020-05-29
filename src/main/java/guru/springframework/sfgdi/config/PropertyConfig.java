@@ -20,6 +20,9 @@ import org.springframework.core.env.Environment;
 //        @PropertySource("classpath:datasource.properties"),
 //        @PropertySource("classpath:jms.properties")
 //})
+//if all the properties are in application.properties, no need to use above annotations
+// further, Spring will parse application.properties as well as application.yml files automatically
+// and bring the properties in to the spring context
 public class PropertyConfig {
 
     //we can override property files by using an environment variables
@@ -53,8 +56,8 @@ public class PropertyConfig {
     public FakeDataSource fakeDataSource()
     {
         FakeDataSource fakeDataSource = new FakeDataSource();
-//        fakeDataSource.setUsername(username);
-        fakeDataSource.setUsername(environment.getProperty("guru.username"));
+        fakeDataSource.setUsername(username);
+//        fakeDataSource.setUsername(environment.getProperty("guru.username"));
         fakeDataSource.setPassword(password);
         fakeDataSource.setUrl(url);
         return fakeDataSource;

@@ -1,0 +1,15 @@
+guru:
+  jms:
+    username: JMS yaml username
+    password: somepass
+    dburl: sdjksjfs
+
+---     ### A File separator
+
+# below is how we setup profile specific properties in .yml
+# This gets precedence over above property
+spring:
+  profiles: EN
+guru:
+  jms:
+    username: JMS EN username
